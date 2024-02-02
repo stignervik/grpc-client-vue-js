@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -10,6 +10,83 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="wrapper">
       <!--<HelloWorld msg="You did it!" /> -->
 
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
+</template>
+
+<style scoped>
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #213305;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  display: inline-block;
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+nav a.router-link-exact-active, nav a.router-link-active {
+  color: #42b983; /* Example active link color */
+}
+
+.router-view {
+  margin-top: 60px; /* Adjust based on header height */
+}
+
+@media (min-width: 1024px) {
+  nav {
+    justify-content: start;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+</style>
+
+
+<!-- <script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
+</script>
+
+<template>
+  <header>
+    
+    <div class="wrapper">
+    
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -82,4 +159,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-</style>
+</style> -->
